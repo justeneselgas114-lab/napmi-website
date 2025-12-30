@@ -83,7 +83,7 @@ const About: React.FC = () => {
           <div className="sticky top-32">
             <Reveal>
               <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-stone-400 mb-10">Academic Excellence</h2>
-              <h3 className="text-4xl md:text-6xl font-serif text-stone-900 mb-12 leading-[1.1] tracking-tight">Foundations of<br />NAPMI</h3>
+              <h3 className="text-4xl md:text-6xl font-serif text-stone-900 mb-12 leading-[1.1] tracking-tight">Foundations of<br /> NAPMI </h3>
               <div className="space-y-8 text-stone-500 leading-relaxed font-light text-base md:text-lg">
                 <p>
                   Our programs are crafted for practitioners who seek more than superficial instruction. We emphasize biomechanics, neuro-centric movement, and pathology-specific adaptations.
@@ -95,17 +95,17 @@ const About: React.FC = () => {
                 {/* Dual Download Links Section */}
                 <div className="pt-10 space-y-10">
                    <div className="group">
-                      <a href="#" className="inline-flex items-start space-x-6 text-[11px] font-bold uppercase tracking-[0.4em] text-stone-900 leading-relaxed max-w-md no-underline">
+                      <div className="inline-flex items-start space-x-6 text-[11px] font-bold uppercase tracking-[0.4em] text-stone-900 leading-relaxed max-w-md no-underline">
                         <span className="h-px w-8 bg-stone-900 transition-all duration-500 group-hover:w-12 mt-2 shrink-0"></span>
                         <span>HOW TO BE AN INTERNATIONALLY CERTIFIED PILATES Instructor</span>
-                      </a>
+                      </div>
                    </div>
                    
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Foundation Curriculum */}
+                      {/* Foundation Curriculum - Fixed Path */}
                       <a 
-                        href="/LevelsOfCertification.pdf" 
-                        download="LevelsOfCertification.pdf"
+                        href="/Level1CertificationCurriculum.pdf" 
+                        download="Level1CertificationCurriculum.pdf"
                         className="flex flex-col space-y-2 group cursor-pointer bg-stone-900 text-white p-6 rounded-sm hover:shadow-2xl transition-all duration-500 active:scale-95 no-underline"
                       >
                         <div className="flex justify-between items-center">
@@ -114,13 +114,13 @@ const About: React.FC = () => {
                             <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
-                        <span className="text-[11px] uppercase font-bold tracking-[0.2em] leading-tight">Levels Of Certification</span>
+                        <span className="text-[11px] uppercase font-bold tracking-[0.2em] leading-tight">Level 1 Curriculum</span>
                       </a>
 
-                      {/* Advanced Curriculum */}
+                      {/* Advanced Curriculum - Fixed Path */}
                       <a 
-                        href="/Level1CertificationCurriculum.pdf" 
-                        download="Level1CertificationCurriculum.pdf"
+                        href="/LevelsOfCertification.pdf" 
+                        download="LevelsOfCertification.pdf"
                         className="flex flex-col space-y-2 group cursor-pointer border border-stone-900 text-stone-900 p-6 rounded-sm hover:bg-stone-50 transition-all duration-500 active:scale-95 no-underline"
                       >
                         <div className="flex justify-between items-center">
@@ -129,9 +129,10 @@ const About: React.FC = () => {
                             <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
-                        <span className="text-[11px] uppercase font-bold tracking-[0.2em] leading-tight">Level 1 Certification Curriculum</span>
+                        <span className="text-[11px] uppercase font-bold tracking-[0.2em] leading-tight">Levels of Certification</span>
                       </a>
                    </div>
+                   <p className="text-[9px] text-stone-400 uppercase tracking-widest font-bold text-center">Note: Ensure files are added to your project root directory.</p>
                 </div>
               </div>
             </Reveal>
