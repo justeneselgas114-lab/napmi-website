@@ -9,8 +9,10 @@ const WhatsAppPopup: React.FC = () => {
    * INTEGRATION: 
    * This pulls from the environment variable with the official NAPMI 
    * contact number (+63 962 690 5291) as the institutional fallback.
+   * Vite projects use import.meta.env. We cast to any for maximum compatibility.
    */
-  const phoneNumber = process.env.VITE_WHATSAPP_NUMBER || "639626905291"; 
+  const env = (import.meta as any).env;
+  const phoneNumber = env?.VITE_WHATSAPP_NUMBER || "639626905291"; 
   
   const message = "Hello, I am interested in NAPMI certification programs. Could you provide more information?";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
