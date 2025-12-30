@@ -7,20 +7,18 @@ const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   /**
-   * INTEGRATION:
-   * Vite projects typically use import.meta.env.
-   * We use type-casting to 'any' to avoid TS compilation errors on specific platforms.
+   * IMPORTANT: For Vercel, you must add VITE_GOOGLE_SCRIPT_URL in your 
+   * Vercel Project Settings > Environment Variables.
    */
-  const env = (import.meta as any).env;
-  const GOOGLE_SCRIPT_URL = env?.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbw5W0F_yLZ4IG5i-x3Epb4BO7NSm_OTRIx-95KSCAc5/exec";
+  const GOOGLE_SCRIPT_URL = (import.meta as any).env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbyQxcWBTc4SFgoQoDDeEND4wvNCEihjOnSSDHxv9RarLBH-I1MifdfnJcii3IaI0KuoiQ/exec";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
 
-    // Security check for /dev URLs
-    if (GOOGLE_SCRIPT_URL.endsWith("/dev")) {
-      console.error("DEPLOYMENT ERROR: Cannot use /dev URL in production. Use the /exec deployment URL.");
+    // Validation: Ensure we aren't using a /dev URL which requires authentication
+    if (GOOGLE_SCRIPT_URL.includes("/dev")) {
+      console.error("CONFIGURATION ERROR: You are using a /dev Google Script URL. Use the /exec deployment URL for production.");
       setStatus('error');
       return;
     }
@@ -31,19 +29,27 @@ const Contact: React.FC = () => {
         email: formData.email,
         message: formData.message,
         timestamp: new Date().toLocaleString(),
-        source: 'NAPMI Production Website'
+        source: window.location.hostname
       };
 
-      // Sending as text/plain with no-cors to ensure Google Apps Script acceptance
+      /**
+       * We use mode: 'no-cors' and text/plain to avoid CORS preflight issues 
+       * with Google Apps Script. Note: response.ok will not be available in no-cors mode.
+       */
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
         body: JSON.stringify(payload),
       });
 
+      // Since 'no-cors' returns an opaque response, we assume success if no network error occurred
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
+      
     } catch (error) {
       console.error('Submission failed:', error);
       setStatus('error');
@@ -68,7 +74,6 @@ const Contact: React.FC = () => {
           <Reveal>
             <h3 className="text-3xl md:text-6xl font-serif text-white mb-8 tracking-tight">Join the next generation of movement specialists.</h3>
             <p className="text-stone-400 text-lg md:text-xl font-light mb-10 max-w-3xl mx-auto leading-relaxed">
-              <br className="hidden md:block" />
               Learn more about our <span className="text-white border-b border-white/20 pb-1">NPCP, PMA, and STOTT accredited pathways.</span>
             </p>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto"></div>
@@ -79,7 +84,7 @@ const Contact: React.FC = () => {
           <div className="lg:col-span-5">
             <Reveal>
               <h2 className="text-[11px] font-bold uppercase tracking-[0.6em] text-stone-500 mb-10">Find Us!</h2>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-10 leading-[1.1] tracking-tight">Inquire<span className="italic text-stone-400">Here.</span></h3>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-10 leading-[1.1] tracking-tight">Inquire<span className="italic text-stone-400"> Here.</span></h3>
               
               <div className="bg-white/5 border border-white/10 p-8 rounded-sm mb-12 backdrop-blur-sm">
                  <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-stone-300 leading-relaxed flex items-start gap-3">
