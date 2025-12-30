@@ -80,11 +80,11 @@ const About: React.FC = () => {
 
         {/* Academic Excellence / Foundation of Professional Mastery */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start pt-16 border-t border-stone-50">
-          <div className="lg:sticky lg:top-32 pb-12 lg:pb-0">
+          <div className="relative z-10 lg:sticky lg:top-32 pb-12 lg:pb-0">
             <Reveal>
               <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-stone-400 mb-8">Academic Excellence</h2>
-              <h3 className="text-3xl md:text-5xl lg:text-6xl font-serif text-stone-900 mb-8 md:mb-12 leading-[1.1] tracking-tight">
-                The Foundation <br className="hidden md:block" /> of Professional Mastery
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-stone-900 mb-8 md:mb-12 leading-[1.1] tracking-tight">
+                Master the Foundations <br className="hidden md:block" /> of a Century-old exercise method
               </h3>
               <div className="space-y-6 md:space-y-8 text-stone-500 leading-relaxed font-light text-base md:text-lg">
                 <p>
@@ -143,15 +143,15 @@ const About: React.FC = () => {
             </Reveal>
           </div>
           
-          <div className="w-full lg:mt-0 mt-8">
+          <div className="w-full mt-24 lg:mt-0 relative z-0">
             <Reveal delay={200}>
-              <div className="bg-stone-50/50 p-8 sm:p-14 md:p-20 rounded-sm border border-stone-100 shadow-sm relative overflow-hidden">
+              <div className="bg-white p-8 sm:p-14 md:p-20 rounded-sm border border-stone-100 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.03)] relative overflow-hidden">
                 <h4 className="text-[9px] font-bold uppercase tracking-[0.3em] text-stone-400 mb-16 md:mb-20 text-center">Certification Pipeline</h4>
                 <div className="space-y-16 md:space-y-20 relative">
-                  <div className="absolute left-[11px] md:left-[14px] top-4 bottom-4 w-px bg-stone-200"></div>
+                  <div className="absolute left-[11px] md:left-[14px] top-4 bottom-4 w-px bg-stone-100"></div>
                   {pathwaySteps.map((item, idx) => (
                     <div key={item.step} className="flex gap-8 md:gap-12 group relative">
-                      <div className="z-10 bg-stone-50 py-1 flex items-start shrink-0">
+                      <div className="z-10 bg-white py-1 flex items-start shrink-0">
                          <span className="font-serif italic text-xl md:text-3xl text-stone-300 group-hover:text-stone-900 transition-all duration-700">
                           {item.step}
                          </span>
