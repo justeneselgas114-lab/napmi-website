@@ -66,9 +66,9 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         <div className="mb-32 text-center">
           <Reveal>
-            <h3 className="text-3xl md:text-6xl font-serif text-white mb-8 tracking-tight">Expand Your Professional Horizon.</h3>
+            <h3 className="text-3xl md:text-6xl font-serif text-white mb-8 tracking-tight">Join the next generation of movement specialists.</h3>
             <p className="text-stone-400 text-lg md:text-xl font-light mb-10 max-w-3xl mx-auto leading-relaxed">
-              Join the next generation of movement specialists. <br className="hidden md:block" />
+              <br className="hidden md:block" />
               Learn more about our <span className="text-white border-b border-white/20 pb-1">NPCP, PMA, and STOTT accredited pathways.</span>
             </p>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto"></div>
@@ -78,8 +78,8 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           <div className="lg:col-span-5">
             <Reveal>
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.6em] text-stone-500 mb-10">Admissions Office</h2>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-10 leading-[1.1] tracking-tight">The Path <br /> to Mastery <br /><span className="italic text-stone-400">Begins Here.</span></h3>
+              <h2 className="text-[11px] font-bold uppercase tracking-[0.6em] text-stone-500 mb-10">Find Us!</h2>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-10 leading-[1.1] tracking-tight">Inquire<span className="italic text-stone-400">Here.</span></h3>
               
               <div className="bg-white/5 border border-white/10 p-8 rounded-sm mb-12 backdrop-blur-sm">
                  <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-stone-300 leading-relaxed flex items-start gap-3">

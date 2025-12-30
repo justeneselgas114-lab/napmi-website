@@ -43,9 +43,9 @@ const pillars = [
 
 const pathwaySteps = [
   { step: '01', title: 'Admissions & Review', desc: 'Initial application, credentials verification, and interview.' },
-  { step: '02', title: 'Immersive Education', desc: 'Theoretical foundations and high-level practical studio work.' },
-  { step: '03', title: 'Rigorous Assessment', desc: 'Exhaustive written and performance-based examinations.' },
-  { step: '04', title: 'Global Certification', desc: 'Conferment of international professional status and licensure.' },
+  { step: '02', title: 'Immersive Education', desc: 'Theoretical foundations, mastery via observation and high-level practical studio work.' },
+  { step: '03', title: 'Rigorous Assessment', desc: 'Comprehensive written and performance-based examinations.' },
+  { step: '04', title: 'Global Certification', desc: 'Access to an international Network of Pilates professionals.' },
 ];
 
 const About: React.FC = () => {

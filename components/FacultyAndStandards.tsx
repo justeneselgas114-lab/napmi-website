@@ -3,11 +3,11 @@ import React from 'react';
 import Reveal from './Reveal';
 
 const locations = [
-  { name: 'California', x: '12.5%', y: '33.5%', region: 'North America' },
-  { name: 'Eastern Europe', x: '53.5%', y: '25.5%', region: 'Europe' },
-  { name: 'Maldives', x: '68.8%', y: '63.2%', region: 'South Asia' },
-  { name: 'Singapore', x: '79.2%', y: '69.5%', region: 'Southeast Asia' },
-  { name: 'Philippines', x: '84.5%', y: '60.8%', region: 'Southeast Asia' },
+  { name: 'California', x: '16.2%', y: '36.5%' },
+  { name: 'Eastern Europe', x: '54.5%', y: '28.5%' },
+  { name: 'Maldives', x: '70.0%', y: '61.2%' },
+  { name: 'Singapore', x: '79.5%', y: '65.8%' },
+  { name: 'Philippines', x: '83.5%', y: '57.2%' },
 ];
 
 const standards = [
@@ -38,69 +38,53 @@ const FacultyAndStandards: React.FC = () => {
                 </div>
                 
                 <div className="mt-12 flex flex-wrap gap-3">
-                  {locations.map((loc) => (
-                    <span key={loc.name} className="px-4 py-2 bg-white border border-stone-200 text-[9px] font-bold uppercase tracking-widest text-stone-500 rounded-sm hover:border-stone-900 hover:text-stone-900 transition-all duration-300 cursor-default">
-                      {loc.name}
+                  {['California', 'Eastern Europe', 'Maldives', 'Singapore', 'Philippines'].map((name) => (
+                    <span key={name} className="px-4 py-2 bg-white border border-stone-200 text-[9px] font-bold uppercase tracking-widest text-stone-500 rounded-sm hover:border-stone-900 hover:text-stone-900 transition-all duration-300 cursor-default">
+                      {name}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="relative aspect-[16/9] bg-[#fdfcfb] border border-stone-200 rounded-sm overflow-hidden group shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)]">
-                {/* Enhanced Vector World Map */}
-                <svg viewBox="0 0 1000 500" className="w-full h-full text-stone-100 fill-current opacity-60">
-                  <image 
-                    href="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
-                    x="0" y="0" width="1000" height="500" 
-                    style={{ filter: 'grayscale(1) brightness(1.2) contrast(0.8)' }}
-                    className="opacity-40"
-                  />
-
-                  <g className="opacity-10">
-                    {Array.from({ length: 10 }).map((_, i) => (
-                      <line key={`v-${i}`} x1={i * 100} y1="0" x2={i * 100} y2="500" stroke="currentColor" strokeWidth="0.5" />
-                    ))}
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <line key={`h-${i}`} x1="0" y1={i * 100} x2="1000" y2={i * 100} stroke="currentColor" strokeWidth="0.5" />
-                    ))}
-                  </g>
-                </svg>
-
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div className="w-[1px] h-full bg-stone-900/5 absolute animate-[scan_8s_linear_infinite]" style={{ left: '0%' }}></div>
+              <div className="relative aspect-[16/10] bg-white border border-stone-200 rounded-sm overflow-hidden group shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]">
+                {/* World Map Backdrop - Clean and High Contrast */}
+                <div className="absolute inset-0 bg-[#fbfbfb]">
+                   <svg viewBox="0 0 1000 500" className="w-full h-full text-[#cfcfcf] fill-current">
+                    <image 
+                      href="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
+                      x="0" y="0" width="1000" height="500" 
+                      style={{ filter: 'grayscale(1) brightness(1.2) contrast(1.1)' }}
+                      className="opacity-60"
+                    />
+                    
+                    {/* Minimalist Coordinate Grid */}
+                    <g className="opacity-[0.03] text-stone-900">
+                      {Array.from({ length: 10 }).map((_, i) => (
+                        <line key={`v-${i}`} x1={i * 100} y1="0" x2={i * 100} y2="500" stroke="currentColor" strokeWidth="1" />
+                      ))}
+                    </g>
+                  </svg>
                 </div>
 
-                {locations.map((loc) => (
+                {/* Accuracy Pins - Exact Visual Match */}
+                {locations.map((loc, idx) => (
                   <div 
-                    key={loc.name} 
-                    className="absolute group/marker" 
+                    key={idx} 
+                    className="absolute z-10" 
                     style={{ left: loc.x, top: loc.y, transform: 'translate(-50%, -50%)' }}
                   >
                     <div className="relative flex items-center justify-center">
-                      <div className="absolute w-12 h-12 bg-stone-900/5 rounded-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                      <div className="absolute w-8 h-8 bg-stone-900/10 rounded-full animate-pulse"></div>
-                      <div className="relative w-3 h-3 bg-stone-900 rounded-full shadow-2xl border-[1.5px] border-white z-10 transition-all duration-500 group-hover/marker:scale-[1.8] group-hover/marker:bg-stone-600"></div>
+                      {/* Large Semi-Transparent Halo */}
+                      <div className="absolute w-12 h-12 bg-stone-200/40 rounded-full"></div>
                       
-                      <div className="absolute top-full mt-3 opacity-0 group-hover/marker:opacity-100 transition-all duration-500 translate-y-2 group-hover/marker:translate-y-0 pointer-events-none whitespace-nowrap z-20">
-                        <div className="bg-stone-900 text-white px-4 py-2 rounded-sm shadow-2xl">
-                          <p className="text-[7px] uppercase tracking-[0.4em] text-stone-400 font-bold mb-1">{loc.region}</p>
-                          <p className="text-[10px] font-bold uppercase tracking-widest">{loc.name}</p>
-                        </div>
-                        <div className="w-2 h-2 bg-stone-900 rotate-45 mx-auto -mt-1 shadow-2xl"></div>
-                      </div>
+                      {/* Solid Black Pin Core */}
+                      <div className="relative w-2.5 h-2.5 bg-stone-950 rounded-full z-10 shadow-sm"></div>
                     </div>
                   </div>
                 ))}
-
-                <div className="absolute bottom-6 right-6 flex flex-col items-end space-y-2">
-                   <div className="bg-white/95 backdrop-blur-sm border border-stone-200 px-4 py-3 rounded-sm shadow-lg flex items-center space-x-4">
-                      <div className="flex -space-x-1">
-                        <div className="w-1.5 h-1.5 bg-stone-900 rounded-full"></div>
-                        <div className="w-1.5 h-1.5 bg-stone-400 rounded-full"></div>
-                      </div>
-                      <p className="text-[8px] uppercase tracking-[0.4em] text-stone-400 font-bold">Faculty Verification Protocol v4.2</p>
-                   </div>
-                </div>
+                
+                {/* Visual Borders */}
+                <div className="absolute inset-0 border border-stone-100 pointer-events-none"></div>
               </div>
             </div>
           </Reveal>
@@ -112,7 +96,6 @@ const FacultyAndStandards: React.FC = () => {
             <Reveal>
               <h2 className="text-[11px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-12">Institutional Standards</h2>
               <div className="flex flex-wrap items-center gap-12 md:gap-16 mb-16">
-                 {/* NPCP Logo - Enlarged */}
                  <div className="flex flex-col items-center group cursor-pointer">
                     <div className="w-32 h-32 md:w-40 md:h-40 bg-white border border-stone-200 flex items-center justify-center mb-4 group-hover:border-stone-400 group-hover:scale-[1.02] transition-all duration-500 overflow-hidden p-4 shadow-sm">
                        <img 
@@ -123,7 +106,6 @@ const FacultyAndStandards: React.FC = () => {
                     </div>
                     <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-stone-400 group-hover:text-stone-900 transition-colors">National Certification</span>
                  </div>
-                 {/* PMA Logo - Enlarged */}
                  <div className="flex flex-col items-center group cursor-pointer">
                     <div className="w-32 h-32 md:w-40 md:h-40 bg-white border border-stone-200 flex items-center justify-center mb-4 group-hover:border-stone-400 group-hover:scale-[1.02] transition-all duration-500 overflow-hidden p-4 shadow-sm">
                        <img 
@@ -160,22 +142,6 @@ const FacultyAndStandards: React.FC = () => {
                       We seek dedicated professionals with existing backgrounds in physiotherapy, physical education, dance, sports science, or high-level performance arts who would want to advance their career in the Pilates Methodology.
                     </p>
                   </div>
-                  <div>
-                    <h4 className="text-stone-900 font-bold mb-4 uppercase tracking-widest text-xs">Student Outcomes</h4>
-                    <p className="text-stone-500 text-sm md:text-base font-light leading-relaxed">
-                      Graduates emerge as Instructors for symptomatic and healthy populations alike.
-                    </p>
-                  </div>
-                  <div className="pt-10 border-t border-stone-50">
-                    <div className="flex items-center space-x-6">
-                      <div className="w-12 h-12 bg-stone-900 rounded-full flex items-center justify-center text-white shrink-0">
-                        <span className="font-serif italic text-lg">N</span>
-                      </div>
-                      <p className="text-stone-600 italic font-serif text-lg leading-relaxed">
-                        "Bridging the divide between tradition and science."
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="absolute top-10 right-[-20px] bottom-[-20px] left-10 border border-stone-200 -z-0 hidden md:block"></div>
@@ -184,12 +150,6 @@ const FacultyAndStandards: React.FC = () => {
         </div>
 
       </div>
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes scan {
-          from { left: -10%; }
-          to { left: 110%; }
-        }
-      `}} />
     </section>
   );
 };
