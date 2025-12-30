@@ -6,26 +6,22 @@ const WhatsAppPopup: React.FC = () => {
   const [shouldShowPulse, setShouldShowPulse] = useState(true);
 
   /**
-   * INTEGRATION STEPS:
-   * 1. Replace "YOUR_PHONE_NUMBER_HERE" with your actual number.
-   * 2. Format: [Country Code][Area Code][Number]
-   * 3. IMPORTANT: No plus signs (+), no spaces, and no dashes.
-   * Example for US: "15551234567"
+   * INTEGRATION: 
+   * This pulls from the environment variable with the official NAPMI 
+   * contact number (+63 962 690 5291) as the institutional fallback.
    */
-  const phoneNumber = "YOUR_PHONE_NUMBER_HERE"; 
+  const phoneNumber = process.env.VITE_WHATSAPP_NUMBER || "639626905291"; 
   
   const message = "Hello, I am interested in NAPMI certification programs. Could you provide more information?";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   useEffect(() => {
-    // Hide the pulse animation after the user interacts or after a delay
     const timer = setTimeout(() => setShouldShowPulse(false), 10000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="fixed bottom-8 right-8 z-[110] flex flex-col items-end">
-      {/* Chat Bubble / Popover */}
       <div 
         className={`mb-4 transition-all duration-500 ease-out transform origin-bottom-right ${
           isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-4 pointer-events-none'
@@ -59,7 +55,6 @@ const WhatsAppPopup: React.FC = () => {
         </div>
       </div>
 
-      {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`group relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 shadow-2xl hover:scale-110 active:scale-95 ${
