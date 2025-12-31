@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Reveal from './Reveal';
 
@@ -54,21 +53,80 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         
         {/* Intro / Mission */}
-        <div className="mb-24 md:mb-40">
-          <Reveal>
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-8">Institutional Mission</h2>
-            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-serif text-stone-900 leading-[1.3] tracking-tight max-w-5xl">
-              NAPMI is an international education and certification institute dedicated to <span className="text-stone-400 italic">advancing</span> Pilates and movement science through a structured curricula, rigorous practice, and North American standards, combining already established <span className="text-stone-900 border-b-2 border-stone-100">Classical Pilates, STOTT, and BASI methodology.</span>
-            </p>
-          </Reveal>
+        <div className="mb-24 md:mb-56">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
+            <div className="lg:col-span-10">
+              <Reveal>
+                <h2 className="text-[11px] font-bold uppercase tracking-[0.5em] text-stone-400 mb-8">Institutional Mission</h2>
+                <p className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl font-serif text-stone-900 leading-[1.3] tracking-tight max-w-5xl">
+                  NAPMI is an international education and certification institute dedicated to <span className="text-stone-400 italic">advancing</span> Pilates and movement science through a structured curricula, rigorous practice, and North American standards, combining already established <span className="text-stone-900 border-b-2 border-stone-100">Classical Pilates, STOTT, and BASI methodology.</span>
+                </p>
+              </Reveal>
+            </div>
+          </div>
+
+          {/* Architectural Triptych Cluster */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-stretch">
+            {/* Image 1: Primary Portrait (The user's reference-style movement study) */}
+            <div className="lg:col-span-7">
+              <Reveal delay={100}>
+                <div className="aspect-[4/5] md:aspect-[16/11] lg:aspect-[4/5] overflow-hidden rounded-sm border border-stone-100 shadow-2xl group relative bg-stone-50 h-full">
+                  <img 
+                    src="https://i.postimg.cc/VkfyLpKT/608282056-1914090882478876-5333058460148459210-n.jpg" 
+                    alt="Precision Movement Education" 
+                    className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-stone-900/5 group-hover:bg-transparent transition-colors duration-700"></div>
+                  <div className="absolute bottom-8 left-8 text-white text-[9px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 bg-stone-900/60 px-5 py-3 backdrop-blur-md translate-y-4 group-hover:translate-y-0">
+                    Instructional Mastery
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right Stack of Details */}
+            <div className="lg:col-span-5 flex flex-col gap-8 md:gap-10">
+              {/* Image 2: Landscape Detail (Infrastructure) */}
+              <div className="flex-1">
+                <Reveal delay={200}>
+                  <div className="aspect-[16/10] overflow-hidden rounded-sm border border-stone-100 shadow-xl group relative bg-stone-50">
+                    <img 
+                      src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=1200" 
+                      alt="Clinical Reformer Infrastructure" 
+                      className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+                    />
+                    <div className="absolute top-6 right-6 text-white text-[9px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 bg-stone-900/60 px-4 py-2 backdrop-blur-sm">
+                      Clinical Focus
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+
+              {/* Image 3: Overlapping Detail (Anatomical Precision) */}
+              <div className="flex-1">
+                <Reveal delay={300}>
+                  <div className="aspect-square lg:aspect-[16/12] overflow-hidden rounded-sm border border-stone-100 shadow-xl group relative bg-stone-50 lg:-mt-4 lg:-ml-12 lg:z-10">
+                    <img 
+                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200" 
+                      alt="Movement Science Detail" 
+                      className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-6 right-6 text-white text-[9px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 bg-stone-900/60 px-4 py-2 backdrop-blur-sm">
+                      Scientific Rigor
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-32 md:mb-48">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-32 md:mb-48 mt-24">
           {pillars.map((pillar, index) => (
             <Reveal key={pillar.title} delay={index * 150}>
               <div className="group flex flex-col h-full p-8 md:p-10 border border-stone-100 bg-stone-50/20 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.06)] transition-all duration-700 ease-out rounded-sm">
-                <div className="mb-8 text-stone-300 group-hover:text-stone-900 transition-colors duration-700 transform group-hover:scale-110 origin-left">
+                <div className="mb-8 text-stone-300 group-hover:text-stone-900 transition-colors duration-700">
                   {pillar.icon}
                 </div>
                 <h3 className="text-[10px] font-bold text-stone-900 mb-4 tracking-[0.2em] uppercase">{pillar.title}</h3>

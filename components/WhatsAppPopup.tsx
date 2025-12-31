@@ -34,7 +34,7 @@ const WhatsAppPopup: React.FC = () => {
             <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping opacity-75"></div>
           </div>
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-900 whitespace-nowrap">
-            Admissions Office Online
+            NAPMI Support
           </span>
         </div>
       </div>

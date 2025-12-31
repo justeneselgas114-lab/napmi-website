@@ -1,22 +1,25 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Reveal from './Reveal';
 
-const locations = [
-  { name: 'California', x: '16.2%', y: '36.5%' },
-  { name: 'Eastern Europe', x: '54.5%', y: '28.5%' },
-  { name: 'Maldives', x: '70.0%', y: '61.2%' },
-  { name: 'Singapore', x: '79.5%', y: '65.8%' },
-  { name: 'Philippines', x: '83.5%', y: '57.2%' },
-];
-
 const standards = [
-  { title: 'Pedagogical Excellence', content: 'Comprehensive curricula spanning over 700 hours of clinical and practical education.' },
+  { title: 'Pedagogical Excellence', content: 'Comprehensive Curricula spanning over 609 hours of Classical and Contemporary Pilates Methodology.' },
   { title: 'Global Ethics', content: 'A rigorous code of conduct ensuring the highest level of professional and educational integrity.' },
-  { title: 'Continuous Quality', content: 'Ongoing institutional evaluation and alignment with emerging physiological science.' },
+  { title: 'Continuous Education', content: 'Ongoing mentorship for our students from our network of instructors all over the world.' },
 ];
 
 const FacultyAndStandards: React.FC = () => {
+  const [coords, setCoords] = useState({ lat: '34.0522', lng: '-118.2437' });
+
+  // Simulate real-time coordinate tracking
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const lat = (34 + Math.random() * 2).toFixed(4);
+      const lng = (-118 + Math.random() * 2).toFixed(4);
+      setCoords({ lat, lng });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="standards" className="py-24 md:py-40 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -46,45 +49,67 @@ const FacultyAndStandards: React.FC = () => {
                 </div>
               </div>
 
-              <div className="relative aspect-[16/10] bg-white border border-stone-200 rounded-sm overflow-hidden group shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]">
-                {/* World Map Backdrop - Clean and High Contrast */}
-                <div className="absolute inset-0 bg-[#fbfbfb]">
-                   <svg viewBox="0 0 1000 500" className="w-full h-full text-[#cfcfcf] fill-current">
-                    <image 
-                      href="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
-                      x="0" y="0" width="1000" height="500" 
-                      style={{ filter: 'grayscale(1) brightness(1.2) contrast(1.1)' }}
-                      className="opacity-60"
-                    />
-                    
-                    {/* Minimalist Coordinate Grid */}
-                    <g className="opacity-[0.03] text-stone-900">
-                      {Array.from({ length: 10 }).map((_, i) => (
-                        <line key={`v-${i}`} x1={i * 100} y1="0" x2={i * 100} y2="500" stroke="currentColor" strokeWidth="1" />
-                      ))}
-                    </g>
-                  </svg>
+              {/* World Map Real-time Tracker Visualization */}
+              <div className="relative aspect-[16/10] bg-stone-950 border border-stone-200 rounded-sm overflow-hidden group shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)]">
+                
+                {/* Custom Map Image */}
+                <div className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-1000">
+                  <img 
+                    src="https://i.postimg.cc/rw87MGv4/Gemini-Generated-Image-qqeprhqqeprhqqep.png" 
+                    alt="Institutional World Map Visualization" 
+                    className="w-full h-full object-cover grayscale contrast-[1.1] brightness-[0.9]"
+                  />
                 </div>
 
-                {/* Accuracy Pins - Exact Visual Match */}
-                {locations.map((loc, idx) => (
-                  <div 
-                    key={idx} 
-                    className="absolute z-10" 
-                    style={{ left: loc.x, top: loc.y, transform: 'translate(-50%, -50%)' }}
-                  >
-                    <div className="relative flex items-center justify-center">
-                      {/* Large Semi-Transparent Halo */}
-                      <div className="absolute w-12 h-12 bg-stone-200/40 rounded-full"></div>
-                      
-                      {/* Solid Black Pin Core */}
-                      <div className="relative w-2.5 h-2.5 bg-stone-950 rounded-full z-10 shadow-sm"></div>
-                    </div>
-                  </div>
-                ))}
+                {/* TRACKER OVERLAYS */}
                 
-                {/* Visual Borders */}
-                <div className="absolute inset-0 border border-stone-100 pointer-events-none"></div>
+                {/* 1. Moving Scanline Animation */}
+                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+                  <div className="w-full h-[2px] bg-white/20 shadow-[0_0_15px_rgba(255,255,255,0.5)] animate-[scan_8s_linear_infinite]"></div>
+                </div>
+
+                {/* 2. Pulsing Network Nodes (Subtle, non-pinpoint) */}
+                <div className="absolute inset-0 z-10 pointer-events-none">
+                  {[
+                    {t:'35%', l:'18%'}, {t:'28%', l:'55%'}, {t:'62%', l:'72%'}, {t:'58%', l:'85%'}
+                  ].map((pos, i) => (
+                    <div key={i} className="absolute w-2 h-2" style={{ top: pos.t, left: pos.l }}>
+                      <div className="absolute inset-0 bg-white/40 rounded-full animate-ping opacity-20"></div>
+                      <div className="absolute inset-[-4px] border border-white/10 rounded-full animate-pulse"></div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* 3. Real-time Data Feed Text */}
+                <div className="absolute bottom-6 left-6 z-30 font-mono text-[8px] text-white/40 uppercase tracking-[0.2em] space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                    <span>System Active // Registry: Global</span>
+                  </div>
+                  <div className="opacity-60">
+                    LAT: {coords.lat} <br />
+                    LNG: {coords.lng}
+                  </div>
+                </div>
+
+                {/* 4. Digital Corner Accents */}
+                <div className="absolute top-0 right-0 p-4 opacity-30 pointer-events-none">
+                  <div className="w-12 h-12 border-t border-r border-white/40"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 p-4 opacity-30 pointer-events-none">
+                  <div className="w-12 h-12 border-b border-l border-white/40"></div>
+                </div>
+
+                {/* Subtle Grid Overlay */}
+                <div className="absolute inset-0 z-20 opacity-[0.05] pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+                
+                {/* Institutional Label */}
+                <div className="absolute top-6 left-6 z-30 text-[9px] font-bold text-white/60 uppercase tracking-[0.4em] hidden md:block">
+                  NAPMI Global Registry // v1.4
+                </div>
+
+                {/* Dark Vignette */}
+                <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
               </div>
             </div>
           </Reveal>
@@ -148,8 +173,15 @@ const FacultyAndStandards: React.FC = () => {
             </Reveal>
           </div>
         </div>
-
       </div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes scan {
+          0% { transform: translateY(-10%); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(1000%); opacity: 0; }
+        }
+      `}} />
     </section>
   );
 };

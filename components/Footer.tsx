@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-sm font-light leading-relaxed max-w-md opacity-60">
-              The North American Pilates & Movement Institute (NAPMI) is a premier global authority for Pilates and movement science education, dedicated to establishing the highest standards of professional excellence through rigorous 700-hour certification pathways.
+              The North American Pilates & Movement Institute (NAPMI) is a premier global authority for Pilates and movement science education, dedicated to establishing the highest standards of professional excellence through rigorous 609-hour certification pathways.
             </p>
           </div>
 

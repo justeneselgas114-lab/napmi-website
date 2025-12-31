@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           <div className="lg:col-span-5">
             <Reveal>
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.6em] text-stone-500 mb-10">Find Us!</h2>
+              <h2 className="text-[11px] font-bold uppercase tracking-[0.6em] text-stone-500 mb-10">CONTACT US</h2>
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-10 leading-[1.1] tracking-tight">Inquire<span className="italic text-stone-400"> Here.</span></h3>
               
               <div className="bg-white/5 border border-white/10 p-8 rounded-sm mb-12 backdrop-blur-sm">

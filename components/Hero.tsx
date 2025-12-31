@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-2 leading-[1.1] md:leading-[1.05] tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
-            North American Pilates & <br className="hidden sm:block" /> Movement Institute
+            International Certification in Classical & <br className="hidden sm:block" /> Contemporary & Movement Science
           </h1>
           
           <div className="space-y-4 md:space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300 fill-mode-both">
