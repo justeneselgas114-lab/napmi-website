@@ -10,9 +10,13 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-10">
             <div className="flex flex-col">
               <span className="font-serif text-4xl font-bold text-white mb-2 tracking-tight">NAPMI</span>
+              <div className="flex items-center gap-3">
+                 <div className="h-px w-6 bg-stone-700"></div>
+                 <span className="text-[9px] uppercase tracking-[0.4em] text-stone-500 font-bold">Institutional Registry</span>
+              </div>
             </div>
             <p className="text-sm font-light leading-relaxed max-w-md opacity-60">
-              North American Pilates & Movement Institute is an international center for the advancement of Pilates methodology and movement science. Dedicated to establishing global standards of educational excellence.
+              The North American Pilates & Movement Institute (NAPMI) is a premier global authority for Pilates and movement science education, dedicated to establishing the highest standards of professional excellence through rigorous 700-hour certification pathways.
             </p>
           </div>
 
@@ -41,7 +45,7 @@ const Footer: React.FC = () => {
         <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12">
             <span className="text-[9px] uppercase tracking-[0.3em] font-light">
-              &copy; {new Date().getFullYear()} NAPMI Institutional Affairs
+              &copy; {new Date().getFullYear()} NAPMI &bull; Established 2020
             </span>
             <div className="hidden md:block w-[1px] h-3 bg-stone-800"></div>
             <span className="text-[9px] uppercase tracking-[0.3em] font-light">

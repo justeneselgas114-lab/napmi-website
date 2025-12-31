@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-10 text-center">
         <div className="space-y-6 md:space-y-10">
           <div className="overflow-hidden">
-            <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] text-stone-300 mb-2 animate-in fade-in slide-in-from-bottom-2 duration-1000">
-              Institutional Excellence Since 2020
+            <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.6em] text-stone-300 mb-2 animate-in fade-in slide-in-from-bottom-2 duration-1000">
+              Institutional Excellence &bull; Est. 2020
             </p>
           </div>
 
